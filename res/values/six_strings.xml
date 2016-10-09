@@ -454,8 +454,8 @@
     <string name="status_bar_toggle_brightness">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the statusbar</string>
     <!-- Custom carrier label and position -->
-    <string name="carrier_label_settings_title">Carrier label</string>
-    <string name="carrier_label_settings_summary">Customize the carrier label</string>
+    <string name="carrier_label_settings_title">Carrier label &amp; rom logo</string>
+    <string name="carrier_label_settings_summary">Customize the carrier label and six rom logo</string>
     <string name="custom_carrier_label_title">Custom carrier label</string>
     <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
@@ -680,4 +680,14 @@
     <string name="volume_steps_15" translatable="false">15</string>
     <string name="volume_steps_7" translatable="false">7</string>
     <string name="volume_steps_5" translatable="false">5</string>
+    <!-- Statusbar SiX logo -->
+    <string name="statusbar_logo">Statusbar logo</string>
+    <string name="status_bar_logo_category_title">Statusbar logo</string>
+    <string name="status_bar_six_logo_title">SiX logo</string>
+    <string name="status_bar_six_logo_summary">Enable to show SiX logo on the left side of statusbar</string>
+    <string name="status_bar_six_logo_color">SiX logo color</string>
+    <string name="status_bar_six_logo_position">Logo location</string>
+    <string name="status_bar_six_logo_position_summary">Choose which side to display the logo on, left or right</string>
+    <string name="status_bar_logo_position_right">Right</string>
+    <string name="status_bar_logo_position_left">Left</string>
 </resources>

@@ -29,21 +29,27 @@ import android.telephony.TelephonyManager;
 import android.text.Spannable;
 import android.text.TextUtils;
 import android.widget.EditText;
+import android.os.UserHandle;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class CarrierLabelSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
 
     private static final String SHOW_CARRIER_LABEL = "status_bar_show_carrier";
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
+    private static final String KEY_SIX_LOGO_COLOR = "status_bar_six_logo_color";
+    private static final String KEY_SIX_LOGO_STYLE = "status_bar_six_logo_style";
 
     private PreferenceScreen mCustomCarrierLabel;
     private ListPreference mShowCarrierLabel;
     private String mCustomCarrierLabelText;
+    private ColorPickerPreference mSixLogoColor;
+    private ListPreference mSixLogoStyle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +66,24 @@ public class CarrierLabelSettings extends SettingsPreferenceFragment
         mShowCarrierLabel.setValue(String.valueOf(showCarrierLabel));
         mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntry());
         mShowCarrierLabel.setOnPreferenceChangeListener(this);
+
+        mSixLogoStyle = (ListPreference) findPreference(KEY_SIX_LOGO_STYLE);
+        int sixLogoStyle = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_SIX_LOGO_STYLE, 0,
+                UserHandle.USER_CURRENT);
+        mSixLogoStyle.setValue(String.valueOf(sixLogoStyle));
+        mSixLogoStyle.setSummary(mSixLogoStyle.getEntry());
+        mSixLogoStyle.setOnPreferenceChangeListener(this);
+
+        // Aicp logo color
+        mSixLogoColor =
+            (ColorPickerPreference) prefSet.findPreference(KEY_SIX_LOGO_COLOR);
+        mSixLogoColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_SIX_LOGO_COLOR, 0xffffffff);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mSixLogoColor.setSummary(hexColor);
+        mSixLogoColor.setNewPreviewColor(intColor);
 
         mCustomCarrierLabel = (PreferenceScreen) findPreference(CUSTOM_CARRIER_LABEL);
         if (TelephonyManager.getDefault().isMultiSimEnabled()) {
@@ -93,6 +117,22 @@ public class CarrierLabelSettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver, Settings.System.
                 STATUS_BAR_SHOW_CARRIER, showCarrierLabel);
             mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntries()[index]);
+            return true;
+        } else if (preference == mSixLogoColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                    Settings.System.STATUS_BAR_SIX_LOGO_COLOR, intHex);
+            return true;
+        } else if (preference == mSixLogoStyle) {
+            int sixLogoStyle = Integer.valueOf((String) newValue);
+            int index = mSixLogoStyle.findIndexOfValue((String) newValue);
+            Settings.System.putIntForUser(
+                    resolver, Settings.System.STATUS_BAR_SIX_LOGO_STYLE, sixLogoStyle,
+                    UserHandle.USER_CURRENT);
+            mSixLogoStyle.setSummary(mSixLogoStyle.getEntries()[index]);
             return true;
          }
          return false;
