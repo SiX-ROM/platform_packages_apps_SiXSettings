@@ -103,10 +103,10 @@
             android:title="@string/power_menu_bug_report_title"
             android:defaultValue="false" />
 
-        <SwitchPreference
+        <!-- <SwitchPreference
             android:key="silent"
             android:title="@string/power_menu_sound_title"
-            android:defaultValue="true" />
+            android:defaultValue="true" /> -->
 
     </PreferenceCategory>
 

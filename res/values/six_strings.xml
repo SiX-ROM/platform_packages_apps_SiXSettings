@@ -291,6 +291,7 @@
     <string name="notification_panel_title">Notification settings panel</string>
     <string name="qs_panel_title">Quick settings panel</string>
     <string name="qs_header_title">Headers settings panel</string>
+    <string name="qs_header_icons_title">Header icons panel</string>
     <!-- qs brightness slider -->
     <string name="qs_brightness_slider_title">Brightness slider</string>
     <string name="qs_brightness_slider_summary">Show brightness slider on quick settings panel</string>
@@ -521,6 +522,7 @@
     <!-- Bluetooth status -->
     <string name="bluetooth_battery_title">Show Bluetooth battery status</string>
     <string name="bluetooth_battery_summary">Show battery status for the currently connected bluetooth device, if available.</string>
+
     <!-- Volume Rocker fragment -->
     <string name="volumerocker_settings_title">Volume rocker</string>
     <!-- Volume button wake -->
@@ -600,7 +602,6 @@
     <string name="battery_bar_color">Battery bar color</string>
     <string name="battery_bar_charging_color">Battery bar charging color</string>
     <string name="battery_bar_battery_low_color">Battery bar low battery color</string>
-    <string name="battery_bar_cat">Battery bar style</string>
     <string name="battery_bar_style_title">Battery bar alignment</string>
     <string name="battery_bar_thickness_title">Battery bar thickness</string>
     <string name="battery_bar_animate_title">Charging animation</string>
@@ -682,12 +683,12 @@
     <string name="volume_steps_5" translatable="false">5</string>
     <!-- Statusbar SiX logo -->
     <string name="statusbar_logo">Statusbar logo</string>
-    <string name="status_bar_logo_category_title">Statusbar logo</string>
-    <string name="status_bar_six_logo_title">SiX logo</string>
-    <string name="status_bar_six_logo_summary">Enable to show SiX logo on the left side of statusbar</string>
-    <string name="status_bar_six_logo_color">SiX logo color</string>
-    <string name="status_bar_six_logo_position">Logo location</string>
-    <string name="status_bar_six_logo_position_summary">Choose which side to display the logo on, left or right</string>
+    <string name="status_bar_logo_category_title">Rom logo</string>
+    <string name="status_bar_six_logo_title">Six logo</string>
+    <string name="status_bar_six_logo_summary">Enable to show SiX logo on the ongoing statusbar</string>
+    <string name="status_bar_six_logo_color">Logo color</string>
+    <string name="status_bar_six_logo_position">Logo position</string>
+    <string name="status_bar_six_logo_position_summary">Choose which side to display the logo, left or right</string>
     <string name="status_bar_logo_position_right">Right</string>
     <string name="status_bar_logo_position_left">Left</string>
 </resources>
