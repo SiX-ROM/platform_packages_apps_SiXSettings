@@ -24,6 +24,11 @@
         android:persistent="false" />
 
     <com.six.settings.preferences.SystemSettingSwitchPreference
+        android:key="recents_use_grid"
+        android:title="@string/recents_use_grid_title"
+        android:defaultValue="true" />
+
+    <com.six.settings.preferences.SystemSettingSwitchPreference
         android:key="show_clear_all_recents"
         android:title="@string/show_clear_all_recents_button_title"
         android:summaryOn="@string/show_clear_all_recents_button_summary_on"
