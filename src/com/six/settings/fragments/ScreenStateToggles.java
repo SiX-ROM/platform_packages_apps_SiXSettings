@@ -97,7 +97,7 @@ public class ScreenStateToggles extends SettingsPreferenceFragment implements Pr
 
         mSecondsOnDelay = (CustomSeekBarPreference) findPreference(SCREEN_STATE_ON_DELAY);
         int ond = Settings.System.getInt(getContentResolver(),
-                Settings.System.SCREEN_STATE_ON_DELAY, 5);
+                Settings.System.SCREEN_STATE_ON_DELAY, 3);
         mSecondsOnDelay.setValue(ond / 1);
         mSecondsOnDelay.setOnPreferenceChangeListener(this);
 
