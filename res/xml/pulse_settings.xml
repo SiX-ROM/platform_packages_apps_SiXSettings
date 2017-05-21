@@ -19,13 +19,6 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/pulse_settings" >
 
-        <Preference
-            style="?android:preferenceInformationStyle"
-            android:key="pulse_help_policy_notice"
-            android:selectable="false"
-            android:summary="@string/pulse_help_policy_notice_summary"
-            android:title="@string/pulse_help_policy_notice_title" />
-
         <SwitchPreference
             android:key="eos_fling_show_pulse"
             android:title="@string/fling_show_pulse_title"
