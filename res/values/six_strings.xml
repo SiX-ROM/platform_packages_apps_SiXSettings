@@ -19,6 +19,7 @@
     <string name="six_interface">Interface</string>
     <string name="six_buttons">Misc</string>
     <string name="six_system">System</string>
+    <string name="six_about">Info</string>
     <!-- Display fragment -->
     <string name="display_settings_title">Display</string>
     <string name="display_category">Display options</string>
@@ -684,8 +685,8 @@
     <!-- Statusbar SiX logo -->
     <string name="statusbar_logo">Statusbar logo</string>
     <string name="status_bar_logo_category_title">Rom logo</string>
-    <string name="status_bar_six_logo_title">Six logo</string>
-    <string name="status_bar_six_logo_summary">Enable to show SiX logo on the ongoing statusbar</string>
+    <string name="status_bar_six_logo_title">S.i.X logo</string>
+    <string name="status_bar_six_logo_summary">Enable to show S.i.X logo on the ongoing statusbar</string>
     <string name="status_bar_six_logo_color">Logo color</string>
     <string name="status_bar_six_logo_position">Logo position</string>
     <string name="status_bar_six_logo_position_summary">Choose which side to display the logo, left or right</string>
