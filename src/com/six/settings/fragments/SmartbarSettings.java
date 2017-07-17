@@ -68,6 +68,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
     private ListPreference mImeActions;
     private ListPreference mButtonAnim;
     private CustomSeekBarPreference mButtonsAlpha;
+    private CustomSeekBarPreference mCustomButtonScaling;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int MENU_SAVE = Menu.FIRST + 1;
@@ -83,6 +84,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
     private static final String KEY_SMARTBAR_BACKUP = "smartbar_profile_save";
     private static final String KEY_SMARTBAR_RESTORE = "smartbar_profile_restore";
     private static final String PREF_NAVBAR_BUTTONS_ALPHA = "navbar_buttons_alpha";
+    private static final String PREF_SMARTBAR_CUSTOM_ICON_SIZE = "smartbar_custom_icon_size";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -113,6 +115,13 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
                 Settings.Secure.NAVBAR_BUTTONS_ALPHA, 255, UserHandle.USER_CURRENT);
         mButtonsAlpha.setValue(bAlpha / 1);
         mButtonsAlpha.setOnPreferenceChangeListener(this);
+
+        mCustomButtonScaling =
+                (CustomSeekBarPreference) findPreference(PREF_SMARTBAR_CUSTOM_ICON_SIZE);
+        int size = Settings.Secure.getIntForUser(getContentResolver(),
+                "smartbar_custom_icon_size", 60, UserHandle.USER_CURRENT);
+        mCustomButtonScaling.setValue(size);
+        mCustomButtonScaling.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -250,6 +259,11 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
             Settings.Secure.putIntForUser(getContentResolver(),
                     Settings.Secure.NAVBAR_BUTTONS_ALPHA, val * 1, UserHandle.USER_CURRENT);
             return true;
+        } else if (preference == mCustomButtonScaling) {
+            int val = (Integer) newValue;
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    "smartbar_custom_icon_size", val, UserHandle.USER_CURRENT);
+            return true;
         }
         return false;
     }
@@ -283,6 +297,11 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
         Settings.Secure.putInt(getContentResolver(),
                 "navbar_buttons_alpha", 255);
         mButtonsAlpha.setValue(255);
+        mButtonsAlpha.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                "smartbar_custom_icon_size", 60);
+        mButtonsAlpha.setValue(60);
         mButtonsAlpha.setOnPreferenceChangeListener(this);
     }
 

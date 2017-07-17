@@ -287,6 +287,7 @@
     <string name="smartbar_config_backup_error_toast">Error saving Smartbar profile</string>
     <string name="smartbar_config_restore_error_toast">Error restoring Smartbar profile</string>
     <string name="navbar_buttons_alpha_title">Button transparency</string>
+    <string name="smartbar_custom_icon_size_title">Custom icon scaling</string>
     <!-- Notification drawer fragment -->
     <string name="notification_drawer_settings_title">Notification and Tiles</string>
     <string name="notification_panel_title">Notification settings panel</string>
