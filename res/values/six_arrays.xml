@@ -632,4 +632,17 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+
+   <!-- Time + Date in Header entries -->
+    <string-array name="qs_date_time_entries">
+        <item>@string/qs_date_time_hidden</item>
+        <item>@string/qs_date_time_left</item>
+        <item>@string/qs_date_time_center</item>
+    </string-array>
+
+    <string-array name="qs_date_time_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

@@ -57,6 +57,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
     private static final String CUSTOM_HEADER_IMAGE_SHADOW = "status_bar_custom_header_shadow";
     private static final String CUSTOM_HEADER_PROVIDER = "custom_header_provider";
     private static final String CUSTOM_HEADER_BROWSE = "custom_header_browse";
+    private static final String HEADER_TIME_DATE = "qs_date_time_center";
 
     private ListPreference mQuickPulldown;
     ListPreference mSmartPulldown;
@@ -71,8 +72,8 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
     private PreferenceScreen mHeaderBrowse;
     private String mDaylightHeaderProvider;
     private SwitchPreference mEasyToggle;
-
     private static final int MY_USER_ID = UserHandle.myUserId();
+    private ListPreference mHeaderClock;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -180,11 +181,18 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
 
         mHeaderBrowse = (PreferenceScreen) findPreference(CUSTOM_HEADER_BROWSE);
         mHeaderBrowse.setEnabled(isBrowseHeaderAvailable());
+
+        mHeaderClock = (ListPreference) findPreference(HEADER_TIME_DATE);
+        mHeaderClock.setOnPreferenceChangeListener(this);
+        int headerClockValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.QS_DATE_TIME_CENTER , 1);
+        mHeaderClock.setValue(String.valueOf(headerClockValue));
     }
 
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.SIX;
+
     }
 
     @Override
@@ -245,6 +253,10 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             int valueIndex = mHeaderProvider.findIndexOfValue(value);
             mHeaderProvider.setSummary(mHeaderProvider.getEntries()[valueIndex]);
             mDaylightHeaderPack.setEnabled(value.equals(mDaylightHeaderProvider));
+            return true;
+        } else if (preference == mHeaderClock) {
+            int headervalue = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.QS_DATE_TIME_CENTER , headervalue);
             return true;
         }
         return false;

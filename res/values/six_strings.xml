@@ -342,8 +342,12 @@
     <string name="qs_expand_indicator_summary">Remove the expand indicator in the header</string>
     <string name="qs_running_services_title">Hide running services icon</string>
     <string name="qs_running_services_summary">Remove the running services icon in the header</string>
-    <string name="qs_date_time_center_title">Center date and time</string>
-    <string name="qs_date_time_center_summary">Requires one or more icons to be disabled</string>
+    <!-- Date + Time in header -->
+    <string name="qs_date_time_center_title">Pulldown Date and Time</string>
+    <string name="qs_date_time_center_summary">Center: requires 1 or more icons to be disabled</string>
+    <string name="qs_date_time_center">Center</string>
+    <string name="qs_date_time_left">Left</string>
+    <string name="qs_date_time_hidden">Hidden</string>
     <!-- Notification & Media fragment -->
     <string name="notification_media_settings_title">Media &amp; notifications</string>
     <string name="media_cat_title">Media options</string>

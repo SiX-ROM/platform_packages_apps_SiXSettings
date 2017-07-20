@@ -189,11 +189,13 @@
             android:summary="@string/qs_expand_indicator_summary"
             android:defaultValue="false" />
 
-        <com.six.settings.preferences.SystemSettingSwitchPreference
+        <ListPreference
             android:key="qs_date_time_center"
             android:title="@string/qs_date_time_center_title"
             android:summary="@string/qs_date_time_center_summary"
-            android:defaultValue="false" />
+            android:entries="@array/qs_date_time_entries"
+            android:entryValues="@array/qs_date_time_values"
+            android:persistent="false" />
 
     </PreferenceCategory>
 
