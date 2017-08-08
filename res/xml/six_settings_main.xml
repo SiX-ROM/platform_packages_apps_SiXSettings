@@ -18,18 +18,6 @@
         android:title="@string/six_settings_title" >
 
     <PreferenceCategory
-        android:key="six_about"
-        android:title="@string/six_about">
-
-        <PreferenceScreen
-            android:key="about_nexus"
-            android:fragment="com.android.settings.six.About"
-            android:title="@string/nexus_about"
-            android:summary="@string/nexus_about_summary" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="six_interface"
         android:title="@string/six_interface">
 

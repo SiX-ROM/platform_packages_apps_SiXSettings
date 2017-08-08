@@ -19,7 +19,6 @@
     <string name="six_interface">Interface</string>
     <string name="six_buttons">Misc</string>
     <string name="six_system">System</string>
-    <string name="six_about">Info</string>
     <!-- Display fragment -->
     <string name="display_settings_title">Display</string>
     <string name="display_category">Display options</string>
